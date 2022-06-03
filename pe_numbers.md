@@ -1,9 +1,9 @@
 #!/usr/local/bin/bash
 
-# Below is a template used by us to count the number of activated elements on a brain surface. 
-# Please write your desired files paths and lists of ROIs and subjects and delete the ().
+# Below is a template used to count the number of activated elements (verticies) on a brain surface. 
+# Please write your desired file paths and lists of ROIs and subjects and delete the ().
 # Explanation of the work of these commands and how to run a script is beyond the scope of this work.
-# To understand the use of the commands and where to enter the paths to your files and output please run the command in  the terminal for the explanation.
+# To understand the use of the commands and where to enter the paths to your files and output please run the command in the terminal for the explanation.
 # To know more about the commands please visit the HCP workbench website https://www.humanconnectome.org/software/workbench-command or visit the HCP-Users Google group https://groups.google.com/a/humanconnectome.org/g/hcp-users
 # in this template cope2 refers to the STORY paradigm and the cope4 for the STORY-MATH. 
 
@@ -35,7 +35,7 @@ done
 
 # Decide which dense to download. Here, we chose the Z-stats.
 
-# 3. Create label dense greyordiantes that matches the brainordinate space used in a relevant template. The template we chose is the zstat1.dtseries.nii of the cope2 (STORY) found in the GrayordinatesStats/cope2.feat subfolder of the fMRI data of the same subject. You need one template only to use for all the ROI and you can choose any beta map file.
+# 3. Create label dense greyordiantes that matche the brainordinate space used in a relevant template. The template we chose is the zstat1.dtseries.nii of the cope2 (STORY) found in the GrayordinatesStats/cope2.feat subfolder of the fMRI data of the same subject. You need one template only to use for all the ROI and you can choose any beta map file.
 
 for sub in (List of subjects); do
     for MMP in (list of ROI without L or R); do
@@ -99,7 +99,7 @@ for sub in (Write here List of subjects); do
                 (Write here path to your desired folder)/${sub}.${h}.${MMP}.${cope}.pos.dtseries.nii \
                 -var fmri (Write here path to your desired folder)/${sub}.${h}.${MMP}.${cope}_cut.dtseries.nii \
                 -var pos $POSMASK
-                # This create a Cifti time series (dtseries) files contain the positive BOLD within the specified regions, ready to be measured in the next step.
+                # This creates a Cifti time series (dtseries) files containining the positive BOLD within the specified regions, ready to be measured in the next step.
                 POS=(Write here path to your desired folder)/${sub}.${h}.${MMP}.${cope}.pos.dtseries.nii
                 SUM=$(wb_command -cifti-stats $POS -reduce SUM)
                 # This is the summation value of the activated elements z-stat within the ROI
