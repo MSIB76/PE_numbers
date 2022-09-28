@@ -1,2 +1,2 @@
 # PE_numbers
-A template to how to calculate the numbers of positive elements on a brain surface
+Here you will find a script template to how to calculate the numbers of positive elements on a brain surface and the supplementary files.
